@@ -8,7 +8,12 @@ body {
     background-color: #c4c4c4;
 
 }
-
+.wordinsert{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: baseline;
+}
 .box {
     border-radius: 21px;
     background: #c4c4c4;
@@ -71,7 +76,6 @@ label {
     #send {
         flex-shrink: 1;
         flex-grow: 1;
-        margin-top: 10px;
     }
 
     #wordinput {
