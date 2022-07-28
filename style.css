@@ -65,3 +65,25 @@ label {
     align-items: center;
     color: white;
 }
+
+@media (max-width:420px) {
+
+    #send {
+        flex-shrink: 1;
+        flex-grow: 1;
+        margin-top: 10px;
+    }
+
+    #wordinput {
+        flex-shrink: 1;
+        flex-grow: 1;
+    }
+
+    .wordinsert {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
