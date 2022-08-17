@@ -2,12 +2,16 @@
 const wordInput = document.querySelector("#wordinput");
 const sent = document.querySelector("#send");
 const count = document.querySelector(".count");
+const userTextOut = document.querySelector(".usertext");
 // const userTextSplit = userText.split("");
 let dot = 0;
-sent.addEventListener("click", dotCount);
-function dotCount() {
+let regaxnum = /[0-9]/g;
+// sent.addEventListener("click", dotCount);
+wordInput.addEventListener("keyup", dotCount);
+function dotCount(e) {
     const userText = wordInput.value;
     // console.log(userText.length);
+
     if (userText.length > 0) {
         const userTextSplit = userText.split("");
         userTextSplit.forEach((word, index) => {
@@ -65,17 +69,30 @@ function dotCount() {
                     break;
                 case "ی":
                     if ((userTextSplit[index + 1] !== undefined) && (userTextSplit[index + 1] !== " ")) {
-                        // console.log(userTextSplit[index + 1]);
-                        dot += 2;
+                        if (!regaxnum.test((userTextSplit[index + 1])))
+                            dot += 2;
+
                     }
                     break;
 
 
             }
+
         });
         count.innerText = dot;
+        userTextOut.innerText = `این متن "${wordInput.value}" `;
+        userTextOut.setAttribute("title", wordInput.value);
+        // wordInput.value = "";
+        // userText = "";
         dot = 0;
         // wordInput.value="";
+
+    }
+    if (wordInput.value.length === 0 && e.keyCode === 8) {
+        userTextOut.innerText = "";
+        count.innerText = dot;
+        // console.log(e.keyCode)
+
 
     }
     else {
